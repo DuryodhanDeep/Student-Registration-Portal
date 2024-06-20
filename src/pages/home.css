@@ -34,6 +34,7 @@
   border-radius: 7px;
 
   .profile-heading{
+    box-sizing: border-box;
     height: 40px;
     background-color: blue;
     border-top-left-radius: 7px;

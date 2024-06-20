@@ -57,8 +57,8 @@ const Home = ({ userDetail, isLoggedIn, setIsLoggedIn }) => {
           </div>  
           <div className="table-class">
             <div className="roll-number">Roll number</div>
-            {/* <div className="data-table"><DataTable />
-    //      </div> */}
+            <div className="data-table"><DataTable />
+    //      </div>
           </div>
 
         </div>
