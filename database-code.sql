@@ -1,62 +1,81 @@
+-- Drop the student table if it exists
 DROP TABLE IF EXISTS student;
 
-CREATE TABLE student(
-	roll_no int primary key,
-	name varchar(50),
-	email varchar(50),
-	department varchar (50),
-	batch int,
-	mobileNo char(15),
-	address varchar(200),
-	password varchar(200)
+-- Create the student table
+CREATE TABLE student (
+  roll_no INT PRIMARY KEY,
+  name VARCHAR(50),
+  email VARCHAR(50),
+  department VARCHAR(50),
+  batch INT,
+  mobileNo CHAR(15),
+  address VARCHAR(200),
+  password VARCHAR(200)
 );
 
+-- Select all records from the student table
 SELECT * FROM student;
+
+-- Select records from the student table where the email matches
 SELECT * FROM student WHERE email = 'duryodhandeep123@gmail.com';
 
+-- Drop the instructor table if it exists
 DROP TABLE IF EXISTS instructor;
 
-CREATE TABLE instructor(
-	ID int primary key,
-	name varchar(50),
-	email varchar(50),
-	department varchar (50),
-	mobileNo char(15),
-	address varchar(200),
-	password varchar(200)
+-- Create the instructor table
+CREATE TABLE instructor (
+  ID VARCHAR(50) PRIMARY KEY,
+  name VARCHAR(50),
+  email VARCHAR(50),
+  department VARCHAR(50),
+  mobileNo CHAR(15),
+  address VARCHAR(200),
+  password VARCHAR(200)
 );
 
+-- Select all records from the instructor table
 SELECT * FROM instructor;
 
-select * from instructor where email='duryodhandeep123@gmai.com';
+-- Select records from the instructor table where the email matches
+SELECT * FROM instructor WHERE email = 'duryodhandeep123@gmai.com';
 
+-- Drop the admin table if it exists
 DROP TABLE IF EXISTS admin;
 
-CREATE TABLE admin(
-	ID int primary key,
-	name varchar(50),
-	email varchar(50),
-	mobileNo char(15),
-	address varchar(200),
-	password varchar(200)
+-- Create the admin table
+CREATE TABLE admin (
+  ID INT PRIMARY KEY,
+  name VARCHAR(50),
+  email VARCHAR(50),
+  mobileNo CHAR(15),
+  address VARCHAR(200),
+  password VARCHAR(200)
 );
 
-
+-- Drop the course table if it exists
 DROP TABLE IF EXISTS course;
 
-CREATE TABLE course(
-	course_ID varchar(10) ,
-	course_name varchar (50),
-	department varchar(50),
-	instructor_ID int
+-- Create the course table
+CREATE TABLE course (
+  course_ID VARCHAR(10) PRIMARY KEY,
+  course_name VARCHAR(50),
+  instructor_ID VARCHAR(50),
+	semester varchar(10),
+  FOREIGN KEY (instructor_ID) REFERENCES instructor(ID)
 );
 
+select * from course;
 
+-- Drop the takes table if it exists
 DROP TABLE IF EXISTS takes;
 
-CREATE TABLE takes(
-	roll_no int,
-	course_ID varchar(10) ,
-	semester int,
-	grade varchar(10)
+-- Create the takes table
+CREATE TABLE takes (
+  takes_id SERIAL PRIMARY KEY,
+  roll_no INT,
+  course_ID VARCHAR(10),
+  semester VARCHAR(10),
+  grade VARCHAR(10),
+  FOREIGN KEY (roll_no) REFERENCES student(roll_no),
+  FOREIGN KEY (course_ID) REFERENCES course(course_ID)
 );

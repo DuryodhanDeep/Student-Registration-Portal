@@ -26,9 +26,9 @@ const Header = ({ sidebarOpen, setSidebarOpen,setBarClicked}) => {
         </div>
         <button onClick={()=>navigate("/login")}>Login</button>
         <button onClick={()=>navigate("/register")}>Register</button>
-        <div className="header-right">
+        {/* <div className="header-right">
             <FontAwesomeIcon icon={faSignOutAlt} className="header-icon signout-icon" />
-        </div>
+        </div> */}
       </div>
   );
 };

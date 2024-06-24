@@ -1,7 +1,7 @@
 
 .header {
   height: 60px;
-  background-color: #D3D9D4;
+  background-color: #eff1f3;
   opacity: 0.98;
   display: flex;
   align-items: center;
@@ -11,6 +11,7 @@
   position: fixed;
   top: 0;
   width: 100%;
+  border-bottom: solid 1px #D3D9D4;
 }
 
 .header-left,

@@ -32,6 +32,7 @@ const Login = ({setUserDetail, setIsLoggedIn}) => {
     try {
         const response = await axios.post('http://localhost:3000/submit-login', formData);
         // alert(response.data);
+
   
         const user = response.data;
 
