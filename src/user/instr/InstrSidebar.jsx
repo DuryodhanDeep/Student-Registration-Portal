@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
-import './StudSidebar.css';
+import './InstrSidebar.css';
 
 const Sidebar = ({isOpen, setIsOpen, barClicked}) => {
 

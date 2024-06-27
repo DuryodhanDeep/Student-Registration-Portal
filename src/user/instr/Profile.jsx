@@ -1,5 +1,5 @@
 import React from 'react';
-import "./StudHome.css";
+import "./InstrHome.css";
 
 const Academic = () => {
   return (

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import "bootstrap/dist/css/bootstrap.min.css";
-import "./login.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './login.css';
 import { useNavigate, useLocation } from 'react-router-dom';
 
-const Login = ({setUserDetail, setIsLoggedIn}) => {
+const Login = ({ setUserDetail, setIsLoggedIn }) => {
   const [email, setEmail] = useState('');
   const [emailError, setEmailError] = useState('');
   const [password, setPassword] = useState('');
@@ -14,7 +14,7 @@ const Login = ({setUserDetail, setIsLoggedIn}) => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const handleSubmit = async(e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     // Simple validation
@@ -25,36 +25,39 @@ const Login = ({setUserDetail, setIsLoggedIn}) => {
       setEmailError('');
     }
 
-    
-
-    const formData = {userType, email, password };
+    const formData = { userType, email, password };
 
     try {
-        const response = await axios.post('http://localhost:3000/submit-login', formData);
-        // alert(response.data);
+      const response = await axios.post('http://localhost:3000/submit-login', formData);
 
-  
-        const user = response.data;
+      const user = response.data;
 
-        console.log("user : ", user);
-  
-        if (response.status === 200) {     
-            setIsLoggedIn(true);
-            setUserDetail({userType:userType, userID:user.userID, name:user.name, email:user.email, mobileNo:user.mobileNo});
-            
-            const redirectTo = location.state?.from || '/';
-            navigate(redirectTo);
-        } else {
-          setServerError('Invalid email or password');
-        }
-      } catch (error) {
-        console.error('Error:', error);
-        if (error.response && error.response.status === 401) {
-          setServerError('Invalid email or password');
-        } else {
-          setServerError('An error occurred. Please try again.');
-        }
+      if (response.status === 200) {
+        const userDetails = {
+          userType: userType,
+          userID: user.userID,
+          name: user.name,
+          email: user.email,
+          mobileNo: user.mobileNo
+        };
+        
+        setIsLoggedIn(true);
+        setUserDetail(userDetails);
+        localStorage.setItem('isLoggedIn', true);
+        localStorage.setItem('userDetail', JSON.stringify(userDetails));   
+        const redirectTo = location.state?.from || '/home';
+        navigate(redirectTo);
+      } else {
+        setServerError('Invalid email or password');
       }
+    } catch (error) {
+      console.error('Error:', error);
+      if (error.response && error.response.status === 401) {
+        setServerError('Invalid email or password');
+      } else {
+        setServerError('An error occurred. Please try again.');
+      }
+    }
   };
 
   return (
@@ -63,7 +66,7 @@ const Login = ({setUserDetail, setIsLoggedIn}) => {
         <h2>Login</h2>
         <div className="input-field">
           <select
-            className={`${!userType ? "is-invalid" : ""}`}
+            className={`${!userType ? 'is-invalid' : ''}`}
             value={userType}
             onChange={(e) => setUserType(e.target.value)}
             required
@@ -78,7 +81,7 @@ const Login = ({setUserDetail, setIsLoggedIn}) => {
         <div className="input-field">
           <input
             type="email"
-            className={`${emailError ? "is-invalid" : ""}`}
+            className={`${emailError ? 'is-invalid' : ''}`}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required

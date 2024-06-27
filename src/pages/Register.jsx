@@ -75,7 +75,7 @@ const Register = () => {
         const response = await axios.post('http://localhost:3000/submit-signup', formData);
         alert(response.data);
 
-        const redirectTo = location.state?.from || '/login';
+        const redirectTo = location.state?.from || '/';
         navigate(redirectTo);
       } catch (error) {
         console.error('Error:', error);
@@ -182,7 +182,7 @@ const Register = () => {
 
         <button type="submit" className="btn btn-primary">Register</button>
         <div className="register">
-          <p>Already have an account? <a href="/login">Sign In</a></p>
+          <p>Already have an account? <a href="/">Sign In</a></p>
         </div>
       </form>
     </div>

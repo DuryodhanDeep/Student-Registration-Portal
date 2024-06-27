@@ -24,7 +24,7 @@ const Header = ({ sidebarOpen, setSidebarOpen,setBarClicked}) => {
         <div className="header-left">
             <FontAwesomeIcon icon={faBars} className="header-icon" onClick={handleBarClick} />
         </div>
-        <button onClick={()=>navigate("/login")}>Login</button>
+        <button onClick={()=>navigate("/")}>Login</button>
         <button onClick={()=>navigate("/register")}>Register</button>
         {/* <div className="header-right">
             <FontAwesomeIcon icon={faSignOutAlt} className="header-icon signout-icon" />

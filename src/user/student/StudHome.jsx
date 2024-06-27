@@ -16,13 +16,15 @@ const StudHome = ({ userDetail, isLoggedIn, setIsLoggedIn }) => {
   const [barClicked, setBarClicked] = useState(false);
   const [homeDisplay, setHomeDisplay] = useState('Academic Home');
 
-  function handleLogout() {
+  function handleLogout() {    
+    // console.log("handle Logout called");
     setIsLoggedIn(false);
-    return navigate("./login");
+    navigate("/");
+    return;
   }
 
   function handleLogin() {
-    return navigate("./login");
+    return navigate("/");
   }
 
   return (

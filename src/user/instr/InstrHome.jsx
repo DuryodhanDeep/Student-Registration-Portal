@@ -18,12 +18,13 @@ const StudHome = ({ userDetail, isLoggedIn, setIsLoggedIn }) => {
 
 
   function handleLogout() {
+    console.log("handleLogout called");
     setIsLoggedIn(false);
-    return navigate("./login");
+    return navigate("/");
   }
 
   function handleLogin() {
-    return navigate("./login");
+    return navigate("/");
   }
 
   return (

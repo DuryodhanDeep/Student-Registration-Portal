@@ -1,6 +1,6 @@
 import React from 'react'
 import DataTable from "../../component/DataTable";
-import "./StudHome.css"
+import "./InstrHome.css"
 
 const Profile = () => {
   return (
@@ -9,11 +9,11 @@ const Profile = () => {
             <div className="profile-heading">
               <h5 className="profile-heading-text">My academic Profile (name)</h5>
             </div>  
-            <div className="table-class">
+            {/* <div className="table-class">
               <div className="roll-number">Roll number</div>
               <div className="data-table"><DataTable />
             </div>
-          </div>
+          </div> */}
           </div>          
         </div>
   )
