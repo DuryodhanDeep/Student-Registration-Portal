@@ -156,7 +156,9 @@ const Academic = ({ userDetail }) => {
                 <label style={{ color: 'black' }}>Enter Student's RollNo</label>
                 {userIDError && <div className="invalid-feedback">{userIDError}</div>}
               </div>
-              <button className="submitRollNo" onClick={handleSubmitRollNo}>Submit</button>
+              <div>
+              <button className="submitRollNo1" onClick={handleSubmitRollNo}>Submit</button>
+              </div>
 
               <div className="data-table">
                 {(studentDetail[0]?.email &&

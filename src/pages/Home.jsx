@@ -6,19 +6,27 @@ import AdminHome from '../user/admin/AdminHome';
 
 const Home = ({ userDetail, isLoggedIn, setIsLoggedIn }) => {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!userDetail) {
+      navigate('/');
+    }
+  }, [userDetail, navigate]);
+
   console.log("inside Home");
   console.log("userDetail in Home", userDetail);
 
-  if(!userDetail){
-    return navigate('/');
+  if (!userDetail) {
+    return null; // or loading indicator while navigating
   }
 
   return (
-    // (userDetail.userType==='student') ?
-      // <StudHome isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} userDetail={userDetail} />  
-      // <InstrHome isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} userDetail={userDetail} />
-      <AdminHome isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} userDetail={userDetail} />
+    (userDetail.userType === 'Student') ?
+      <StudHome isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} userDetail={userDetail} /> :
+      (userDetail.userType === 'Instructor') ?
+        <InstrHome isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} userDetail={userDetail} /> :
+        <AdminHome isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} userDetail={userDetail} />
   );
-}
+};
 
 export default Home;

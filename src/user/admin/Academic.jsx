@@ -63,7 +63,7 @@ const Academic = ({ userDetail }) => {
           <h5 className="profile-heading-text">View Student Academic</h5>
         </div>
 
-        <div className="table-class" style={{ backgroundColor: 'yellowgreen' }}>
+        <div className="table-class">
           <div className="view-students">
             <div className="input-field" style={{ color: 'black' }}>
               <select
