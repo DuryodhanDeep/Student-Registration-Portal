@@ -68,7 +68,6 @@ const Academic = ({ userDetail }) => {
               <select
                 value={studentClass}
                 onChange={(e) => setStudentClass(e.target.value)}
-                disabled={!batchNo}
               >
                 <option value="" disabled hidden></option>
                 <option>Computer Science and Engineering</option>
@@ -86,7 +85,6 @@ const Academic = ({ userDetail }) => {
                 className={`${userIDError ? "is-invalid" : ""}`}
                 value={rollNo}
                 onChange={(e) => setRollNo(e.target.value)}
-                disabled={!studentClass}
               />
               <label>View Student by Roll No</label>
               {userIDError && <div className="invalid-feedback">{userIDError}</div>}

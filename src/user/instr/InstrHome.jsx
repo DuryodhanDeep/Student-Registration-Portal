@@ -9,18 +9,18 @@ import Sidebar from "./InstrSidebar";
 import Profile from "./Profile";
 import Academic from "./Academic";
 
-const StudHome = ({ userDetail, isLoggedIn, setIsLoggedIn }) => {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [barClicked, setBarClicked] = useState(false);
-
-
+const InstrHome = ({ userDetail, isLoggedIn, setIsLoggedIn }) => {
   const navigate = useNavigate();
 
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [barClicked, setBarClicked] = useState(false);
+  const [homeDisplay, setHomeDisplay] = useState('Academic Home');
 
-  function handleLogout() {
-    console.log("handleLogout called");
+  function handleLogout() {    
+    // console.log("handle Logout called");
     setIsLoggedIn(false);
-    return navigate("/");
+    navigate("/");
+    return;
   }
 
   function handleLogin() {
@@ -28,19 +28,22 @@ const StudHome = ({ userDetail, isLoggedIn, setIsLoggedIn }) => {
   }
 
   return (
-
     <div id="home-page-root">
       <div className={`home-page-left ${barClicked ? 'open-left' : ''}`}>
-        <Sidebar isOpen={sidebarOpen} setIsOpen={setSidebarOpen} barClicked={barClicked}/>
+        <Sidebar isOpen={sidebarOpen} setIsOpen={setSidebarOpen} barClicked={barClicked} handleLogout={handleLogout} setHomeDisplay={setHomeDisplay}/>
       </div>
       <div className={`home-page-right ${barClicked ? 'open-right' : ''}`}>
-        <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} setBarClicked={setBarClicked}/>
-        <Academic />
+        <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} setBarClicked={setBarClicked} />
+        {homeDisplay === 'Academic Home' ? (
+          <Academic userDetail={userDetail}/>
+        ) : homeDisplay === 'Profile' ? (
+          <Profile userDetail={userDetail}/>
+        ) : null
+        }
         <Footer />
-      </div>   
-            
+      </div>
     </div>
   );
 };
 
-export default StudHome;
+export default InstrHome;

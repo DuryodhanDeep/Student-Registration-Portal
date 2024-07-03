@@ -16,8 +16,8 @@ const Home = ({ userDetail, isLoggedIn, setIsLoggedIn }) => {
   return (
     // (userDetail.userType==='student') ?
       // <StudHome isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} userDetail={userDetail} />  
-      // <InstrHome isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} userDetail={userDetail} />
-      <AdminHome isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} userDetail={userDetail} />
+      <InstrHome isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} userDetail={userDetail} />
+      // <AdminHome isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} userDetail={userDetail} />
   );
 }
 

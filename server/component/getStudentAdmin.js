@@ -54,7 +54,7 @@ async function getStudentAdmin(req, res, db) {
         // console.log(`final query : ${query}, final params : ${params}`);
 
         const result = await db.query(query, params);
-        console.log("student details fetched data : ", result.rows);
+        // console.log("student details fetched data : ", result.rows);
         res.status(200).json(result.rows);
     } catch (err) {
         console.log("Error during fetching student data");
