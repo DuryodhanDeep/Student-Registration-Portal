@@ -7,7 +7,7 @@ import AdminHome from '../user/admin/AdminHome';
 const Home = ({ userDetail, isLoggedIn, setIsLoggedIn }) => {
   const navigate = useNavigate();
   console.log("inside Home");
-  console.log("userDetail in InstrHome", userDetail);
+  console.log("userDetail in Home", userDetail);
 
   if(!userDetail){
     return navigate('/');
@@ -16,8 +16,8 @@ const Home = ({ userDetail, isLoggedIn, setIsLoggedIn }) => {
   return (
     // (userDetail.userType==='student') ?
       // <StudHome isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} userDetail={userDetail} />  
-      <InstrHome isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} userDetail={userDetail} />
-      // <AdminHome isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} userDetail={userDetail} />
+      // <InstrHome isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} userDetail={userDetail} />
+      <AdminHome isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} userDetail={userDetail} />
   );
 }
 

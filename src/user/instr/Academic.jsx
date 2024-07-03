@@ -49,25 +49,27 @@ const Academic = ({ userDetail }) => {
           <h5 className="profile-heading-text">View Student Academic</h5>
         </div>
 
-        <div className="table-class" style={{ backgroundColor: "yellowgreen" }}>
-          <div className="view-students">
-            <div className="input-field" style={{ color: 'black' }}>
+        <div className="table-class" >
+          <div className="view-students" style={{ color: 'black' }}>
+            <div className="input-field">
               <select
                 value={batchNo}
                 onChange={(e) => setBatchNo(e.target.value)}
+                style={{ color: 'black' }}
               >
                 <option value="" disabled hidden></option>
                 <option>2022</option>
                 <option>2023</option>
                 <option>2024</option>
               </select>
-              <label>View Students by Batch</label>
+              <label style={{ color: "black" }}>View Students by Batch</label>
             </div>
 
             <div className="input-field">
               <select
                 value={studentClass}
                 onChange={(e) => setStudentClass(e.target.value)}
+                style={{ color: 'black' }}
               >
                 <option value="" disabled hidden></option>
                 <option>Computer Science and Engineering</option>
@@ -76,7 +78,7 @@ const Academic = ({ userDetail }) => {
                 <option>Chemical Engineering</option>
                 <option>Civil Engineering</option>
               </select>
-              <label>View Students by Class</label>
+              <label style={{ color: "black" }}>View Students by Class</label>
             </div>
 
             <div className="input-field">
@@ -85,8 +87,9 @@ const Academic = ({ userDetail }) => {
                 className={`${userIDError ? "is-invalid" : ""}`}
                 value={rollNo}
                 onChange={(e) => setRollNo(e.target.value)}
+                style={{ color: 'black' }}
               />
-              <label>View Student by Roll No</label>
+              <label style={{ color: "black" }}>View Student by Roll No</label>
               {userIDError && <div className="invalid-feedback">{userIDError}</div>}
             </div>
 

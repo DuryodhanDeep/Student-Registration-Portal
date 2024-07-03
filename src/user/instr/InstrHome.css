@@ -102,6 +102,27 @@
           gap : 30px;
         }
       }
+
+      /* Ensure the view-students class has black text */
+.view-students {
+  color: black;
+}
+
+/* Apply specific styles for input fields and labels if necessary */
+.view-students .input-field {
+  color: black;
+}
+
+/* Ensure that br elements inside view-students are not overridden */
+.view-students br {
+  color: black;
+}
+.view .input-field  option {
+  background-color: #124E66;
+  opacity: 0.2;
+  
+}
+
     
   
   

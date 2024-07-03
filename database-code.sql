@@ -61,7 +61,7 @@ CREATE TABLE course (
   course_name VARCHAR(50),
   instructor_ID VARCHAR(50),
 	semester varchar(10),
-  FOREIGN KEY (instructor_ID) REFERENCES instructor(ID)
+  FOREIGN KEY (course_ID) REFERENCES course(course_ID) ON DELETE CASCADE
 );
 
 select * from course;
@@ -76,6 +76,6 @@ CREATE TABLE takes (
   course_ID VARCHAR(10),
   semester VARCHAR(10),
   grade VARCHAR(10),
-  FOREIGN KEY (roll_no) REFERENCES student(roll_no),
-  FOREIGN KEY (course_ID) REFERENCES course(course_ID)
+  FOREIGN KEY (roll_no) REFERENCES student(roll_no) ON DELETE CASCADE,
+  FOREIGN KEY (course_ID) REFERENCES course(course_ID) ON DELETE CASCADE
 );

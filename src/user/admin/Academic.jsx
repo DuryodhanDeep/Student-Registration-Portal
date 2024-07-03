@@ -69,13 +69,14 @@ const Academic = ({ userDetail }) => {
               <select
                 value={batchNo}
                 onChange={(e) => setBatchNo(e.target.value)}
+                style={{ color: 'black' }}
               >
                 <option value="" disabled hidden></option>
                 <option>2022</option>
                 <option>2023</option>
                 <option>2024</option>
               </select>
-              <label>View Students by Batch</label>
+              <label style={{ color: 'black' }}>View Students by Batch</label>
             </div>
 
             <div className="input-field">
@@ -84,6 +85,7 @@ const Academic = ({ userDetail }) => {
                 onChange={(e) => setStudentClass(e.target.value)}
                 // onClick={()=>setStudentClassD(false)}
                 // disabled={!}
+                style={{ color: 'black' }}
               >
                 <option value="" disabled hidden></option>
                 <option>Computer Science and Engineering</option>
@@ -92,7 +94,7 @@ const Academic = ({ userDetail }) => {
                 <option>Chemical Engineering</option>
                 <option>Civil Engineering</option>
               </select>
-              <label>View Students by Class</label>
+              <label style={{ color: 'black' }}>View Students by Class</label>
             </div>
 
             <div className="input-field">
@@ -101,21 +103,11 @@ const Academic = ({ userDetail }) => {
                 className={`${userIDError ? 'is-invalid' : ''}`}
                 value={rollNo}
                 onChange={(e) => setRollNo(e.target.value)}
+                style={{ color: 'black' }}
               />
-              <label>View Student by Roll No</label>
+              <label style={{ color: 'black' }}>View Student by Roll No</label>
               {userIDError && <div className="invalid-feedback">{userIDError}</div>}
             </div>
-
-            {!editMode ? (
-              <button onClick={() => setEditMode(true)}>Edit</button>
-            ) : (
-              <>
-                <button onClick={handleSaveChanges} disabled={loading}>
-                  {loading ? 'Saving...' : 'Save Changes'}
-                </button>
-                <button onClick={handleAddRow}>Add Row</button>
-              </>
-            )}
 
             <div className="data-table">
               {studentData.length > 0 && (
@@ -126,6 +118,19 @@ const Academic = ({ userDetail }) => {
                 />
               )}
             </div>
+
+            {/* {!editMode ? (
+              <button onClick={() => setEditMode(true)}>Edit</button>
+            ) : (
+              <>
+                <button onClick={handleSaveChanges} disabled={loading}>
+                  {loading ? 'Saving...' : 'Save Changes'}
+                </button>
+                <button onClick={handleAddRow}>Add Row</button>
+              </>
+            )} */}
+
+            
           </div>
         </div>
       </div>

@@ -23,7 +23,7 @@ const StudentTable = ({ data, setData, editMode }) => {
         </tr>
       </thead>
       <tbody>
-        {data.map((row, index) => (
+        {data.length > 0 && data.map((row, index) => (
           <tr key={index}>
             <td>{row.batch}</td>
             <td>{row.department}</td>
@@ -35,6 +35,7 @@ const StudentTable = ({ data, setData, editMode }) => {
                   type="text"
                   value={row.semester}
                   onChange={(e) => handleInputChange(e, index, 'semester')}
+                  required
                 />
               ) : (
                 row.semester
@@ -46,6 +47,7 @@ const StudentTable = ({ data, setData, editMode }) => {
                   type="text"
                   value={row.course_id}
                   onChange={(e) => handleInputChange(e, index, 'course_id')}
+                  required
                 />
               ) : (
                 row.course_id
@@ -68,6 +70,7 @@ const StudentTable = ({ data, setData, editMode }) => {
                   type="text"
                   value={row.grade}
                   onChange={(e) => handleInputChange(e, index, 'grade')}
+                  required
                 />
               ) : (
                 row.grade

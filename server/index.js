@@ -9,6 +9,10 @@ import register from './component/register.js';
 import getStudentAcademic from './component/getStudentAcademic.js';
 import getStudentAdmin from './component/getStudentAdmin.js';
 import getInstrCourses from './component/getInstrCourses.js';
+import saveStudentData from './component/saveStudentData.js';
+import addNewStudent from './component/addNewStudent.js';
+import getStudentDetail from './component/getStudentDetail.js';
+import deleteStudent from './component/deleteStudent.js';
 
 dotenv.config();
 
@@ -42,6 +46,15 @@ app.post('/student-admin', async(req, res) => getStudentAdmin(req, res, db));
 app.post('/student-solo', async(req, res) => getStudentAdmin(req, res, db));
 
 app.post('/instr-courses', async(req, res) => getInstrCourses(req, res, db));
+
+app.post('/save-student-data', async(req, res) => saveStudentData(req, res, db));
+
+app.post('/add-student', async(req, res) => addNewStudent(req, res, db));
+
+app.post('/student-detail', async(req, res) => getStudentDetail(req, res, db));
+
+app.delete('/delete-student/:rollNo', async (req, res) => deleteStudent(req, res, db));  
+
 
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
