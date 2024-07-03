@@ -44,7 +44,7 @@ DROP TABLE IF EXISTS admin;
 
 -- Create the admin table
 CREATE TABLE admin (
-  ID INT PRIMARY KEY,
+  ID VARCHAR PRIMARY KEY,
   name VARCHAR(50),
   email VARCHAR(50),
   mobileNo CHAR(15),

@@ -7,6 +7,7 @@ import dotenv from 'dotenv';
 import login from './component/login.js';
 import register from './component/register.js';
 import getStudentAcademic from './component/getStudentAcademic.js';
+import getStudentAdmin from './component/getStudentAdmin.js';
 
 dotenv.config();
 
@@ -33,7 +34,11 @@ app.post('/submit-signup', async(req, res) => register(req, res, db, bcrypt, sal
 
 app.post('/submit-login', async(req, res) => login(req, res, db, bcrypt));
 
-app.post('/student-academic', async(req, res) => getStudentAcademic(req, res, db))
+app.post('/student-academic', async(req, res) => getStudentAcademic(req, res, db));
+
+app.post('/student-admin', async(req, res) => getStudentAdmin(req, res, db));
+
+app.post('/student-solo', async(req, res) => getStudentAdmin(req, res, db));
 
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
