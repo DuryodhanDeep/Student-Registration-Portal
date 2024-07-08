@@ -3,12 +3,6 @@
 ## Introduction
 The Student Registration Portal is a comprehensive university system designed to facilitate the management and access of student information. This portal provides distinct roles and functionalities for students, instructors, and administrators, ensuring a streamlined and secure environment for managing academic data.
 
-## Features
-- **User Roles and Functionalities**: 
-  - Students can register, view, and update their information.
-  - Instructors can manage courses, view student information, and submit grades.
-  - Administrators have full control over the system, including user management and system settings.
-
 ## Technologies Used
 - **Frontend**: 
   - React.js
