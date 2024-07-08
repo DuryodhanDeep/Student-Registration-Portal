@@ -83,8 +83,6 @@ const Academic = ({ userDetail }) => {
               <select
                 value={studentClass}
                 onChange={(e) => setStudentClass(e.target.value)}
-                // onClick={()=>setStudentClassD(false)}
-                // disabled={!}
                 style={{ color: 'black' }}
               >
                 <option value="" disabled hidden></option>

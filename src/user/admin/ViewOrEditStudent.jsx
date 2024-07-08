@@ -113,7 +113,6 @@ const Academic = ({ userDetail }) => {
       const response = await axios.delete(`http://localhost:3000/delete-student/${rollNo}`);
       console.log('Student deleted successfully!', response.data);
       
-      // Update state to remove the deleted student from the list
       setStudentData(studentData.filter(student => student.roll_no !== rollNo));
     } catch (error) {
       console.error('Error deleting student:', error);
@@ -137,27 +136,35 @@ const Academic = ({ userDetail }) => {
           <h5 className="profile-heading-text">View/Edit Students</h5>
         </div>
 
-        <div className="actionType">
+        {/* <div className="actionType">
           <button onClick={() => setActionType('Student Academic')} style={{ backgroundColor: '#80669d', margin: '5px' }}>Edit Existing Student</button>
           <button onClick={() => setActionType('Add New Student')} style={{ backgroundColor: '#33b249', margin: '5px' }}>Add New Student</button>
-        </div>
+        </div> */}
+
+        
 
         <div className="table-class">
+        <div className="actionType">
+          <button onClick={() => setActionType('Student Academic')} style={{ backgroundColor: '#80669d', marginLeft:'0px', margin: '20px' }}>Edit Existing Student</button>
+          <button onClick={() => setActionType('Add New Student')} style={{ backgroundColor: '#33b249',marginLeft:'0px',  margin: '20px' }}>Add New Student</button>
+        </div>
+
           {actionType === 'Student Academic' && (
             <div className="view-students">
-              <div className="input-field">
-                <input
-                  type="text"
-                  className={userIDError ? 'is-invalid' : ''}
-                  value={rollNo}
-                  onChange={(e) => setRollNo(e.target.value)}
-                  style={{ color: 'black' }}
-                />
-                <label style={{ color: 'black' }}>Enter Student's RollNo</label>
-                {userIDError && <div className="invalid-feedback">{userIDError}</div>}
-              </div>
-              <div>
-              <button className="submitRollNo1" onClick={handleSubmitRollNo}>Submit</button>
+              <div className='student-roll-no'>
+                <div className="input-field">
+                  <input
+                    type="text"
+                    className={userIDError ? 'is-invalid' : ''}
+                    value={rollNo}
+                    onChange={(e) => setRollNo(e.target.value)}
+                    style={{ color: 'black' }}
+                  />
+                  <label style={{ color: 'black' }}>Enter Student's RollNo</label>
+                  {userIDError && <div className="invalid-feedback">{userIDError}</div>}           
+                </div>
+                <button style={{ backgroundColor: '#4681f4', margin: '1px' , padding: '-2px', alignSelf:'right'}}  className="submitRollNo1" onClick={handleSubmitRollNo}>Submit</button>         
+                
               </div>
 
               <div className="data-table">
@@ -173,14 +180,14 @@ const Academic = ({ userDetail }) => {
 
               {studentDetail[0] && !editMode && (
                 <div className='edit-del'>                  
-                  <button className="edit" onClick={() => setEditMode(true)}>Edit</button>
-                  <button className="delete" onClick={() => handleDeleteStudent(studentDetail[0].roll_no)}>Delete Student</button>
+                  <button style={{ backgroundColor: '#5dbea3', margin: '5px' }} className="edit" onClick={() => setEditMode(true)}>Edit</button>
+                  <button style={{ backgroundColor: 'red', margin: '5px' }} className="delete" onClick={() => handleDeleteStudent(studentDetail[0].roll_no)}>Delete Student</button>
                 </div>
               )}
               {editMode && (
                 <>
-                  <button className="edit" onClick={handleAddRow}>Add Row</button>
-                  <button className="save" onClick={handleSaveChanges} disabled={loading}>
+                  <button style={{ backgroundColor: '#5dbea3', margin: '5px' }} className="edit" onClick={handleAddRow}>Add Row</button>
+                  <button style={{ backgroundColor: '#33b249', margin: '5px' }} className="save" onClick={handleSaveChanges} disabled={loading}>
                     {loading ? 'Saving...' : 'Save Changes'}
                   </button>
                 </>
